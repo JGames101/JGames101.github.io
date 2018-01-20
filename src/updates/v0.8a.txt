@@ -1,0 +1,22 @@
+<h2>0.8a</h2><br>
+<h3>Overview</h3><br>
+0.8a, the final Alpha release, is a huge change in the way you navigate the site. You can still access it at <a href="/alpha/">jgames101.github.io/alpha/</a>.
+<ul>
+	<li>JavaScript now 2 new experiments.
+	<li>JavaScript missing and Connnection Missing alerts now show on all pages.
+	<li>There is a new menu for navigating the site.
+</ul>
+<br>
+<h3>JavaScript Cards</h3><br>
+JavaScript has 2 new cards: Changing the background, and a 2-way temperature converter.<br>
+<h4>Background Changer</h4><br>
+Click buttons to change the background of the page. It only applies to the JavaScript page. The possible backgrounds are the four photos from the photography page.<br>
+<h4>Temperature Converter</h4><br>
+Unlike the old Fahrenheit to Celcius converter, this one works both ways. You can either enter a number in Fahrenheit or Celcius, and then press a conversion button.<br>
+<br>
+<h3>Alert Updates</h3><br>
+JavaScript Disabled on Connection Missing alerts now show on all pages, so that regardless of the page that you are on, it will tell you if JavaScript is disabled, which breaks certain functions, such as the menu.<br>
+On the pages that rely completely on JavaScript (AngularJS and JavaScript), the alert is now fullscreen, so that the page underneath is unusable.<br>
+<br>
+<h3>The new Menu!</h3><br>
+There is now a button (three white lines) in the top left corner. When clicked, a new menu with a link to all pages opens. You can click any of the words to quickly get to that page.<br>

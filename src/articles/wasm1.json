@@ -1,0 +1,5 @@
+{
+    "title":"My First Test With WASM",
+    "subtitle":"Setting up Emscripten and compiling to WASM",
+    "body":"<h2>Setting Up Emscripten</h2><br>THe first step in using WebAssembly is setting up Emscripten."
+}

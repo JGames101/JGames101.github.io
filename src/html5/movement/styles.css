@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Mono');
+
+body {
+    background-color:#4caf50;
+    overflow:hidden;
+}
+
+.material-icons { font-size: 72px !important; cursor: inherit; }
+.material-icons { color: rgba(255, 255, 255, 1); }
+
+#player {
+    position:absolute;
+    top:16px;
+    left:16px;
+}

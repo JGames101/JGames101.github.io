@@ -1,0 +1,116 @@
+@keyframes rainbow {
+    0%, 100% {
+      background-color: red;
+    }
+    20% {
+      background-color: yellow;
+    }
+    40% {
+        background-color: limegreen;
+    }
+    60% {
+      background-color: aqua;
+    }
+    80% {
+      background-color: purple;
+    }
+}
+
+@keyframes fab-enter {
+  0% {
+   right:-5rem;
+  }
+  50% {
+    right:-5rem;
+  }
+  100% {
+    right:1rem;
+  }
+}
+
+@keyframes fab-exit {
+ 0% {
+  right:1rem;
+ }
+ 100% {
+  right:-5rem;
+ }
+}
+
+@media(min-width: 1024px) {
+  @keyframes fab-enter {
+    0% {
+     right:-5rem;
+    }
+    50% {
+      right:-5rem;
+    }
+    100% {
+      right:1.5rem;
+    }
+  }
+  @keyframes fab-exit {
+    0% {
+     right:1.5rem;
+    }
+    100% {
+     right:-5rem;
+    }
+   }
+}
+
+@keyframes articleEnter {
+  0% {
+    left:102.5%;
+  }
+  100% {
+    left:2.5%;
+  }
+}
+
+@keyframes articleExit {
+  0% {
+    left:2.5%;
+  }
+  100% {
+    left:102.5%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+    
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+    
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+.aRainbow {
+    animation: rainbow 5s infinite;
+}
+/*.fixedFab {
+    animation: fab-enter 2s;
+}*/
+.articleBackground {
+  animation: fadeIn 0.5s;
+}
+
+#fadeOut {
+  animation:fadeOut 0.5s;
+}
+
+#closeArticle {
+  animation: articleExit 0.5s;
+}

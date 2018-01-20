@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Forest Model</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-assets>
+          <a-asset-item id="forestModel" src="forest.ply"></a-asset-item>
+        </a-assets>
+        <a-entity ply-model="src: #forestModel" rotation="-90 0 0"></a-entity>
+        <a-camera position="0 1 0" look-controls-enabled="true"></a-camera>
+        <a-sky color="#039be5"></a-sky>
+    </a-scene>
+  </body>
+</html>

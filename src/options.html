@@ -1,0 +1,21 @@
+<aside id="optionsDialog"
+    class="mdc-dialog"
+    role="alertdialog"
+    aria-labelledby="optionsDialog-label"
+    aria-describedby="optionsDialog-description">
+    <div class="mdc-dialog__surface">
+      <header class="mdc-dialog__header">
+        <h2 id="optionsDialog-label" class="mdc-dialog__header__title">
+          Options
+        </h2>
+      </header>
+      <section id="optionsDialog-description" class="mdc-dialog__body">
+        <button class="mdc-button" onclick="setOption('theme', 'light')">Light Theme</button>
+        <button class="mdc-button" onclick="setOption('theme', 'dark')">Dark Theme</button>
+      </section>
+      <footer class="mdc-dialog__footer">
+        <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Done</button>
+      </footer>
+    </div>
+    <div class="mdc-dialog__backdrop"></div>
+</aside>

@@ -1,0 +1,5 @@
+{
+    "title":"v3.1δ",
+    "subtitle":"Flags and Menus",
+    "body":"<h2>Flags Page</h2><br>The Flags Page has many experimental options, including a simplified menu. WARNING: Most of these features don't yet work.<br><br><h2>New Options Format</h2><br>This is not a feature you will notice.<br>Internally, options are no longer stored as individual items in localStorage. Instead, they are stored as JSON objects. Inside the code, there is a converter that will update the options from the old format to the new format. Flags also uses this format. There are new global functions for this: getOption(option), getFlag(flag), and more.<br><br><h2>Menus</h2><br>In v3.0d, the share buttons in the news feed and the toolbar were replaced with menu buttons. However, those still activated a share function. In this version, they bring up a menu, which can also be activated with a right-click.<br><br><h2>Bottom Toolbar</h2><br>This version sees the return of a feature from 1.X: The toolbar can now be set to appear on the bottom.<br>Unlike in those versions, however, the feature works on any device."
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "title":"Version 4.0ε",
+        "subtitle":"A Complete Internal and External Redesign of the Site",
+        "body":"Version 4.0ε redesigns the UI of the site with CSS grid everywhere, consistent colours and a dark theme, and a new code page with new HTML tests.",
+        "actions":[{"text":"read","raised":false,"action":"/src/updates/4.0.json"}]
+    },
+    {
+        "title":"All About the Site Redesign",
+        "subtitle":"Learn all about the Epsilon Update Redesign",
+        "body":"Learn all the new features, changes, and updates in the Epsilon Update (Version 4.0ε)",
+        "actions":[{"text":"read","raised":false,"action":"/src/articles/epsilonRedesign.json"}]
+    },
+    {
+        "title":"Internal Changes in Epsilon Update",
+        "subtitle":"How the new Features Happened",
+        "body":"Learn about the internal changes in the Epsilon Update, including the CSS animations, MDC Components JS, and new Grid Features.",
+        "actions":[{"text":"read","raised":false,"action":"/src/articles/epsilonRecode.json"}]
+    },
+    {
+        "title":"My First Test With WASM",
+        "subtitle":"See it on the Code Page",
+        "body":"About my experience setting up Emscripten, and using Web Assembly.",
+        "actions":[{"text":"read","raised":false,"action":"/src/articles/wasm1.json"}]
+    },
+    {
+        "title":"objectStorage System",
+        "subtitle":"A new internal system",
+        "body":"objectStorage adds features to JavaScript's built in methods to allow you to use getObject and setObject for localStorage and sessionStorage.",
+        "actions":[{"text":"read","raised":false,"action":"/src/articles/wasm1.json"}]
+    }
+]

@@ -1,0 +1,21 @@
+.gc-fullWidth {
+    grid-column: 1 / -1;
+}
+.grid {
+    display:grid;
+}
+.gc-list--horizontal {
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
+    overflow-x: scroll;
+}
+.gc-list--horizontal > * {
+    grid-row:1;
+}
+.gc-list--vertical {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+.gc-list--vertical > * {
+    grid-column:1;
+}

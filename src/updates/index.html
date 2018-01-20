@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="manifest" href="/manifest.json">
+        <link rel="apple-touch-icon" sizes="180x180" href="/src/icon/ios/ios-appicon-180-180.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/src/icon/firefox/firefox-general-32-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/src/icon/firefox/firefox-general-16-16.png">
+        <title>James M</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="/node_modules/material-components-web/dist/material-components-web.css">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <meta name="apple-mobile-web-app-title" content="James M">
+        <style>
+        .fixedFab { position: fixed;bottom: 1rem;right: 1rem; }
+        @media(min-width: 1024px) {.fixedFab { bottom: 1.5rem;right: 1.5rem; }}
+        html:not(.mdc-theme--dark) { /* Material Theme Stuff */
+            --mdc-theme-secondary: #00897b;
+            --mdc-theme-primary: #fff;
+            --mdc-theme-text-primary-on-primary: #222;
+            --mdc-theme-text-secondary-on-primary: #777;
+            --mdc-theme-text-icon-on-primary: #222;
+            --mdc-theme-text-hint-on-primary: #222;
+        }
+        html.mdc-theme--dark { /* Material Theme Stuff */
+            --mdc-theme-secondary: #00897b;
+            --mdc-theme-primary: #222;
+            --mdc-theme-text-primary-on-primary: #fff;
+            --mdc-theme-text-secondary-on-primary: #e3e3e3;
+            --mdc-theme-text-icon-on-primary: #fff;
+            --mdc-theme-text-hint-on-primary: #fff;
+        }
+        </style>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                .then(function(swReg) {
+                    console.log('Service Worker is registered', swReg);
+                    swRegistration = swReg;
+                })
+                .catch(function(error) {
+                    console.error('Service Worker Error', error);
+                });
+                    
+            });
+        }
+        </script>
+    </head>
+    <header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall">
+        <div class="mdc-toolbar__row">
+            <a class="noDec" href="/"><span class="mdc-toolbar__title">Home</span></a>
+            <a class="noDec" href="/code"><span class="mdc-toolbar__title">Code</span></a>
+            <a class="noDec" href="/media"><span class="mdc-toolbar__title">Media</span></a>
+        </div>
+    </header>
+    <aside class="mdc-temporary-drawer mdc-typography" id="navDrawer">
+        <nav class="mdc-temporary-drawer__drawer">
+          <header class="mdc-temporary-drawer__header">
+            <div class="mdc-temporary-drawer__header-content" style="background-color:var(--mdc-theme-secondary);color:white">
+              James M
+            </div>
+          </header>
+          <nav id="icon-with-text-demo" class="mdc-temporary-drawer__content mdc-list">
+            <a class="mdc-list-item mdc-temporary-drawer--selected" href="/">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</i>Home
+            </a>
+            <a class="mdc-list-item" href="/code">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">code</i>Code
+            </a>
+            <a class="mdc-list-item" href="/media">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">video_library</i>Media
+            </a>
+            <a class="mdc-list-item" onclick="openOptions()" style="position:fixed;bottom:0px;cursor:pointer;">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">settings</i>Options
+            </a>
+          </nav>
+        </nav>
+    </aside>
+    <button class="mdc-fab material-icons fixedFab" id="menuButton" aria-label="Favorite">
+        <span class="mdc-fab__icon">
+            menu
+        </span>
+    </button>
+    <body>
+        <aside id="dialogBox"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="dialogBox-label"
+        aria-describedby="dialogBox-description">
+            <div class="mdc-dialog__surface">
+                <header class="mdc-dialog__header">
+                    <h2 id="dialogBox-label" class="mdc-dialog__header__title"></h2>
+                </header>
+                <section id="dialogBox-description" class="mdc-dialog__body"></section>
+                <footer class="mdc-dialog__footer">
+                <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept mdc-dialog__action">Okay!</button>
+                </footer>
+            </div>
+            <div class="mdc-dialog__backdrop"></div>
+        </aside>
+        <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
+            <h1 class="gc-fullWidth">Updates</h1>
+            <h2 class="gc-fullWidth">Version History</h2>
+            <div class="mdc-card epsilon major" id="4.0">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v4.0 Epsilon</h1>
+                  <h2 class="mdc-card__subtitle">A complete redesign and recode of the site</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                  Version 4.0 Epsilon completely redesigns the site. Internally, the site has also been remade.
+                  There's a new code page, with 5 new test pages.
+                  The site now works without JavaScript disabled.
+                  A lot more has been changed in this version! Click "read" below to see!
+                  Warning: A lot of features from previous were removed in this version.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/4.0.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card delta minor" id="3.2">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v3.2 Delta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    To change between tabs (home, code, and media), you can now use swipe gestures.
+                    The videos player has been redesigned.
+                    The PiP video player is fully functional!
+                    The site now uses CSS grid for a better experience with screen readers, to make the flow of the HTML document make more sense, and to make resizing the page function properly.
+                    The card sorting system from <a href="#1.43">v1.43 Beta</a> has been replaced with CSS Grid.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/3.2.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card delta minor" id="3.1">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v3.1 Delta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a flags page for changes or options that are in testing.
+                    There is a new format for storing options, which uses a JSON object.
+                    A new personalization option was added: Menu Locataion. Top or bottom.
+                    The menu buttons on the news popout and in the header in version 3.0 now function, bringing up a menu with a few options, including share and a link to options.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/3.1.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card delta major" id="3.0">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v3.0 Delta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    index.html is now used to display all pages. 404 redirects to the index.
+                    Page changes are handled by JS rather than the browser. This change makes the site much faster.
+                    All pages still have their own URL, meaning that sharing still works.
+                    This change means features such as the news reader can be loaded from any page.
+                    2 new photos were added.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/3.0.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card gamma hundredth" id="2.31">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.31 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    News reader has been redesigned. News articles can now be loaded directly from updates page.
+                    On supported versions, "more info" opens the news reader rather than the TXT viewer.
+                </section>
+            </div>
+            <div class="mdc-card gamma minor" id="2.3">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.3 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    A news page has been added. It has a list of news, including updates, new photos, and more. It loads articles from JSON to be extremely fast.
+                    Service worker no longer caches everything loaded, so offline mode finally works properly.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/2.3.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card gamma minor" id="2.2">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.2 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The homescreen has been redesigned with newsfeeds for news, code, and media. It is loaded from JSON.
+                    Material Components have been brought to more parts of the site, and secondary colour is now selectable in options.
+                    There are four new images.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/2.2.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card gamma minor" id="2.1">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.1 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Material Design Components are now fully implemented on the header and Javascript page.
+                    The menu has been redesigned as a material design toolbar, with tabs for home, code (JavaScript), and media.
+                    The photos page has been completely redesigned, and now correctly loads the image from the URL.
+                    There is now an expand/contract button for all sections of cards.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/2.1.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card gamma hundredth" id="2.01">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.01 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    To improve speed for users with poor network connections, many tweaks have been made for speed.
+                    Content of the page, Modernizer, and JQuery are only loaded after everything has finished.
+                </section>
+            </div>
+            <div class="mdc-card gamma major" id="2.0">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v2.0 Gamma</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The site has been completely redesigned! There are now different menus that are loaded in.
+                    The site has a segmented design for better offline support. There is now a special message when offline.
+                    There is a new "media" page for photos and videos.
+                    As with v1.0b, the final beta version, v1.441b, can be found at /beta.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/2.0.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.441">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.441 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Setup now has a scrollbar. Service worker caches <a href="https://jgames101.github.io/txt">jgames101.github.io/txt</a>.
+                    There is now a classic v1.0 theme. Swipe gestures work on the menu!
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.44">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.44 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    On supported browsers, images are served over webP. Unsupported browsers are detected with Modernizr.
+                    Offline support and PWA are now fixed.
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.433">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.433 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Page titles have been shortened. For example, from "James M | Updates" to "Updates".
+                    Cards display like they used to in Alpha when using classic theme.
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.432">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.432 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The setup page for the classic theme now uses the classic fuchsia background.
+                    The expand button on the menu is animated when opening or closing the menu.
+                    Fixed the resizing bug on mobile.
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.431">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.431 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a photo dark theme. It is the same as the dark theme, but without the black background.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.43">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.43 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a JavaScript algorythm that sorts cards into columns. It has the same layout as before,
+                    with three, two, or one column depending on the device, except cards are right below the ones above them,
+                    rather than being pushed down to below the biggest one from the row above.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.42">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.42 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Vertical Tablet Mode now has the menu bar at the bottom.
+                    Options page has slightly changed: Setting a background changes your theme colour, and the colour selector
+                    has been moved to legacy options.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.41">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.41 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Light theme now has a lighter navigation bar, and darker icons and text.
+                    Tablet mode now has wide cards for certain things, and should now properly 
+                    only show on tablets.
+                </section>
+            </div>
+            <div class="mdc-card beta minor" id="1.4">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.4 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    A new theme groupd has been added: classic.
+                    Classic 0.8a theme has been added. It makes the site look
+                    like v0.8a did.
+                    Dark theme now works. It is the same as light theme,
+                    but with dark grey instead of light grey.
+                    There is now a setup page for choosing your background
+                    and theme. It should only be displayed when visiting for the
+                    first time.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.31">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.31 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There are two new themes: Light, and Dark. Currently, only light theme works.
+                    There is a new mobile options in options, with a toggle for navbar location (top or bottom)
+                </section>
+            </div>
+            <div class="mdc-card beta minor" id="1.3">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.3 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    You can now set a theme in options. The themes are in beta, and as such will probably
+                    be removed in the future. The photos page has been redesigned with fullscreen, no menu bar,
+                    and better button design.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.22">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.22 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The expand button on mobile is now oriented correctly.
+                    The expand button no longer has a scrollbar.
+                    JavaScript has a file information card, with a file picker.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.21">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.21 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Rather than at /updates/info, update information is now read
+                    at /txt, a more universal equivilant for my entire site.
+                </section>
+            </div>
+            <div class="mdc-card beta minor" id="1.2">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.2 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Material icons are used for almost all icons, rather than images.
+                    There is now a more info button on updates, starting with this version.
+                    That button opens a TXT viewer with the text file open.
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.191">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.191 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a 404 page.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.19">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.19 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    JavaScript now has a web browser test.
+                    Menu links are no longer clickable when the menu is closed.
+                </section>
+            </div>
+            <div class="mdc-card beta thousandth" id="1.181">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.181 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Added the touch punch library to get JQuery mouse stuff to work on touchscreens.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.18">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.18 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    New system for forced updates when online.
+                    Updates card on the homepage now has two subtitles: Installed version, and latest version.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.17">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.17 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    When changing theme colour, the page now refreshes for the android theme colour.
+                    In options, there is a new install section. Currently, there's only a UWP option.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.16">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.16 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Service worker has been remade so that offline support works again.
+                    PWA prompt should now appear.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.15">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.15 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    JavaScript is disabled alert now uses noscript, rather than being hidden by JavaScript on run.
+                    JQuery is now loaded locally instead of from Google's CDN.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.14">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.14 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Added suggested colours to the personalization menu, one for each background.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.13">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.13 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Chrome for Android theme colour is now dynamic depending on your app theme colour.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.12">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.12 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Mobile navigation bar fixed, to now only show the first 6 icons at the top, have the expand button, and be a fixed size.
+                    Fixed the mobile scrolling problem (extra scrollable space to the right)
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.11">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.11 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    JQuery now has a "very basic OS" test.
+                </section>
+            </div>
+            <div class="mdc-card beta minor" id="1.1">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.1 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is a new JQuery page. It has a draggable test, and a double-click test.
+                    Theme colour settings now have a prompt for easier selection.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.04">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.04 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The Angular page has been fixed.
+                    HTML5 page now has a textbox.
+                    The alpha site now works properly.
+                    There is now an options page.
+                    Most elements have a custom context menu.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.03">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.03 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Setting a background in the JavaScript page now applies to all pages.
+                    The darkened background has been removed.
+                    There are four new background images.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.02">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.02 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The mobile navigation bar has been redesigned. It is now positioned at the top.
+                </section>
+            </div>
+            <div class="mdc-card beta hundredth" id="1.01">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.01 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Mobile background fixed.
+                </section>
+            </div>
+            <div class="mdc-card beta major" id="1.0">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v1.0 Beta</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    The menu has been replaced by a bar. You can click the expand button to open it,
+                    and it will appear similar to the menu from <a href="#0.8">v0.8</a>, but with icons at the left.
+                    When not expanded, the icons remain on the left, being clickable.
+                    All pages now have a viewport, so no pages will face the angular issue of being too small on mobile.
+                    Updated theme colour for Android.
+                    There's now a custom scrollbar!
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/1.0.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.8">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.8 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    JavaScript now has a background changer, notification generator, and two-way temperature converter.
+                    JavaScript and Angular have a fullscreen "this page will not work without JavaScript".
+                    JavaScript missing and connection missing now show on all pages.
+                    the navbar tests have been removed and replaced with an expandable menu.
+                    The photos page has been redesigned to no longer scroll, but have arrow buttons.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/0.8.json')">read</button>
+                </section>
+            </div>
+            <div class="mdc-card alpha hundredth" id="0.72">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.72 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Mobile now has the same coloured background as desktop, but solid.
+                    no JS alert now shows above every else.
+                    There's now a no connection alert.
+                    The coloured background is now on every page.
+                </section>
+            </div>
+            <div class="mdc-card alpha hundredth" id="0.71">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.71 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Service worker now detects when you're online and returns from URL rather than cache.
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.7">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.7 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Fixed issues with caching. The page now works offline and loads properly online.
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.6">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.6 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    New site design, with a background image! Added an early test of a photo gallery.
+                    Added Berlin VR to the homefeed. Removed responsive and offline pages, as the entire
+                    site does that. There's now a darkened background under cards on PC and tablet.
+                    There's now a global.js file for hiding the JS alert. Pages have moved to subfolders.
+                    e.g. "updates.html" becomes "/updates".
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.5">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.5 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a notification button in JavaScript.
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.4">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.4 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There is now a manifest.json and a service worker, so that the site is now a PWA.
+                    New JavaScript alert on index.html. If JavaScript is disabled on your browser, you'll see the red card on the homescreen.
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.3">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.3 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    There's a new mobile site design, similar to Material Design, for a better user experience.
+                </section>
+            </div>
+            <div class="mdc-card alpha minor" id="0.2">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.2 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Added a JavaScript page.
+                </section>
+            </div>
+            <div class="mdc-card alpha major release" id="0.1">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v0.1 Alpha</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Official Release of the site.
+                </section>
+            </div>
+        </main>
+        <script src="/js/am.js"></script>
+        <script src="/node_modules/material-components-web/dist/material-components-web.js"></script>
+        <script>mdc.autoInit()</script>
+        <script src="/javascript.js"></script>
+    </body>
+</html>

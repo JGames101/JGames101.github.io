@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="mdc-typography">
+  <head>
+    <title>Text Editor</title>
+    <link rel="stylesheet" href="/node_modules/material-components-web/dist/material-components-web.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <aside id="blankDialog"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="blankDialog-label"
+        aria-describedby="blankDialog-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="blankDialog-label" class="mdc-dialog__header__title">
+            </h2>
+          </header>
+          <section id="blankDialog-description" class="mdc-dialog__body"></section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Okay</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+    </aside>
+    <aside id="saveAsDialog"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="saveAsDialog-label"
+        aria-describedby="saveAsDialog-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="saveAsDialog-label" class="mdc-dialog__header__title">
+              Save As...
+            </h2>
+          </header>
+          <section id="saveAsDialog-description" class="mdc-dialog__body">
+            <label for="saveAsName">Save as </label><div class="mdc-text-field"><input type="text" id="saveAsName" class="mdc-text-field__input" placeholder="Name"><div class="mdc-text-field__bottom-line"></div></div>
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Cancel</button>
+            <button type="button" onclick="saveFile()" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Save</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+    </aside>
+    <aside id="openDialog"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="openDialog-label"
+        aria-describedby="openDialog-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="openDialog-label" class="mdc-dialog__header__title">
+              Open...
+            </h2>
+          </header>
+          <section id="openDialog-description" class="mdc-dialog__body">
+            <ul class="mdc-list" id="fileList"></ul>
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+    </aside>
+    <aside id="downloadDialog"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="downloadDialog-label"
+        aria-describedby="downloadDialog-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="downloadDialog-label" class="mdc-dialog__header__title">
+              Export File
+            </h2>
+          </header>
+          <section id="downloadDialog-description" class="mdc-dialog__body">
+            Export File as 
+            <select id="downloadTypeSelector">
+                <option value="txt" selected>.txt</option> 
+                <option value="html">.html</option>
+                <option value="js">.js</option>
+                <option value="css">.css</option>
+                <option value="bat">.bat</option>
+                <option value="json">.json</option>
+            </select>
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+            <button type="button" onclick="downloadFile()" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Download</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+    </aside>
+    <header class="mdc-toolbar mdc-toolbar--fixed">
+        <div class="mdc-toolbar__row">
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+                <span class="mdc-toolbar__title">Text Editor</span>
+            </section>
+        </div>
+        <div class="mdc-toolbar__row">
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+                <div class="toolbar mdc-menu-anchor" id="fileContainer">
+                    <a class="mdc-toolbar__icon" id="fileButton">File</a>
+                    <div class="mdc-simple-menu" id="fileMenu" tabindex="-1">
+                        <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+                            <li class="mdc-list-item" onclick="newFile()" role="menuitem" tabindex="0">New</li>
+                            <li class="mdc-list-item" onclick="openOpenDialog()" role="menuitem" tabindex="0">Open...</li>
+                            <li class="mdc-list-item" onclick="saveSmpFile()" role="menuitem" tabindex="0">Save</li>
+                            <li class="mdc-list-item" onclick="openDialog('saveAs')" role="menuitem" tabindex="0">Save As...</li>
+                            <li class="mdc-list-item" onclick="openDialog('download')" role="menuitem" tabindex="0">Export...</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="toolbar mdc-menu-anchor" id="helpContainer">
+                    <a class="mdc-toolbar__icon" id="helpButton">Help</a>
+                    <div class="mdc-simple-menu" id="helpMenu" tabindex="-1">
+                        <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+                            <li class="mdc-list-item" onclick="showPopup('About This Text Editor', 'This is a text editor created in HTML5, with Material Components for UI. It saves files using localStorage, and can export files to your computer.')" role="menuitem" tabindex="0">About...</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>
+    <main class="mdc-toolbar-fixed-adjust">
+        <textarea></textarea>          
+    </main>
+    <script src="/node_modules/material-components-web/dist/material-components-web.js"></script>
+    <script>mdc.autoInit();</script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="javascript.js"></script>
+  </body>
+</html>

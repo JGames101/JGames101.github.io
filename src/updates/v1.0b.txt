@@ -1,0 +1,37 @@
+<h2>1.0b | Beta Release!</h2><br>
+<h3>Overview</h3><br>
+1.0b is the beta launch! You can still access the final version of the Alpha site from <a href="/alpha/">https://jgames101.github.io/alpha/</a>, but will no longer be updated. The new version of the site has many changes, including:<br>
+<ul>
+	<li>The Menu has been heavily updated. There is a persistent bar with icons, and an expand button to see the text links, and many other updates.
+	<li>Every page now has a viewport declared in the head, to make sure that content is scaled correctly.
+	<li>Android theme colour has been updated.
+	<li>The scrollbar has been customized on any Webkit-based browser.
+</ul>
+<br>
+<h3>Menu</h3><br>
+There are many updates to the menu.<br>
+<h4>Persistent Navigation Bar</h4><br>
+In <a href="https://jgames101.github.io/txt/?document=https://jgames101.github.io/updates/info/logs/v0.8a.txt">v0.8a</a>, a menu was added, with a menu button that could be clicked to bring it up. Now, however, it has been heavily redesigned. There is now a persistent navigation bar on the left, so you don't have to open the menu every time. This menu is 64 pixels wide. This bar contains icons for quick access to other pages, without having to open the menu.<br>
+<h4>Open Menu Changes</h4><br>
+Now, when you click the open menu button, rather than making the menu appear, it just expands the bar to the old menu, but with icons beside the text.<br>
+This change is animated, so that opening the menu happens over 0.4 seconds, rather than instantly.<br>
+<h4>Other Navigation Changes</h4></br>
+The colour of the navigation bar has been changed from a light blue to a darker greyish-blue.<br>
+Photography has been removed from the menu, as it has not been finalized.<br>
+<br>
+<h3>Viewport on all Pages</h3><br>
+All pages now have a Viewport declared in head, which means that content scales better on phones.<br>
+In older versions, you could see that on pages such as Angular, which were missing the Viewport, were not readable on phones.<br>
+This is a very small change, but makes the Progressive Web App work much better.<br>
+<br>
+<h3>Android Theme Colour Change</h3><br>
+The Theme colour for Android (tab and navigation control colours in Chrome, and title in the app switcher for the Progressive Web App) has been updated from the old grey background colour to the new greyish-blue navigation menu colour.<br>
+<br>
+<h3>Custom Scrollbar</h3><br>
+CSS has been added so that on webkit-based browsers, the scrollbar now matches the page much better. The clickable part is now the navigation bar colour, and the background is a lighter version.<br>
+This only applies to webkit-based browsers, but similar things are possible on other browsers, so it may be updated to work with Firefox and Internet Explorer in the future.<br>
+<br>
+<h3>Update Notes</h3><br>
+This update is the biggest update since the site launched. There are a lot of new features, which make the overall usability of the site much better.<br>
+Moving forward, there will be more frequent smaller updates, and updates the size of 0.3a would no longer be considered a new number (ie 1.1), but instead a smaller update (ie 1.01).<br>
+Thank you for using the site, and hopefully many more great features are still to come.

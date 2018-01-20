@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="manifest" href="/manifest.json">
+        <link rel="apple-touch-icon" sizes="180x180" href="/src/icon/ios/ios-appicon-180-180.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/src/icon/firefox/firefox-general-32-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/src/icon/firefox/firefox-general-16-16.png">
+        <title>James M</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="/node_modules/material-components-web/dist/material-components-web.css">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <meta name="apple-mobile-web-app-title" content="JGames101">
+        <style>
+        .fixedFab { position: fixed;bottom: 1rem;right: 1rem; }
+        @media(min-width: 1024px) {.fixedFab { bottom: 1.5rem;right: 1.5rem; }}
+        html:not(.mdc-theme--dark) { /* Material Theme Stuff */
+            --mdc-theme-secondary: #00897b;
+            --mdc-theme-primary: #fff;
+            --mdc-theme-text-primary-on-primary: #222;
+            --mdc-theme-text-secondary-on-primary: #777;
+            --mdc-theme-text-icon-on-primary: #222;
+            --mdc-theme-text-hint-on-primary: #222;
+        }
+        html.mdc-theme--dark { /* Material Theme Stuff */
+            --mdc-theme-secondary: #00897b;
+            --mdc-theme-primary: #222;
+            --mdc-theme-text-primary-on-primary: #fff;
+            --mdc-theme-text-secondary-on-primary: #e3e3e3;
+            --mdc-theme-text-icon-on-primary: #fff;
+            --mdc-theme-text-hint-on-primary: #fff;
+        }
+        </style>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                .then(function(swReg) {
+                    console.log('Service Worker is registered', swReg);
+                    swRegistration = swReg;
+                })
+                .catch(function(error) {
+                    console.error('Service Worker Error', error);
+                });
+                    
+            });
+        }
+        </script>
+    </head>
+    <header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall">
+        <div class="mdc-toolbar__row">
+            <a class="noDec" href="/"><span class="mdc-toolbar__title">Home</span></a>
+            <a class="noDec" href="/code"><span class="mdc-toolbar__title">Code</span></a>
+            <a class="noDec" href="/media"><span class="mdc-toolbar__title">Media</span></a>
+        </div>
+    </header>
+    <aside class="mdc-temporary-drawer mdc-typography" id="navDrawer">
+        <nav class="mdc-temporary-drawer__drawer">
+          <header class="mdc-temporary-drawer__header">
+            <div class="mdc-temporary-drawer__header-content" style="background-color:var(--mdc-theme-secondary);color:white">
+              James M
+            </div>
+          </header>
+          <nav id="icon-with-text-demo" class="mdc-temporary-drawer__content mdc-list">
+            <a class="mdc-list-item mdc-temporary-drawer--selected" href="/">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</i>Home
+            </a>
+            <a class="mdc-list-item" href="/code">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">code</i>Code
+            </a>
+            <a class="mdc-list-item" href="/media">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">video_library</i>Media
+            </a>
+            <a class="mdc-list-item" onclick="openOptions()" style="position:fixed;bottom:0px;cursor:pointer;">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">settings</i>Options
+            </a>
+          </nav>
+        </nav>
+    </aside>
+    <button class="mdc-fab material-icons fixedFab" id="menuButton" aria-label="Favorite">
+        <span class="mdc-fab__icon">
+            menu
+        </span>
+    </button>
+    <body>
+        <aside id="dialogBox"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-labelledby="dialogBox-label"
+        aria-describedby="dialogBox-description">
+            <div class="mdc-dialog__surface">
+                <header class="mdc-dialog__header">
+                    <h2 id="dialogBox-label" class="mdc-dialog__header__title"></h2>
+                </header>
+                <section id="dialogBox-description" class="mdc-dialog__body"></section>
+                <footer class="mdc-dialog__footer">
+                <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept mdc-dialog__action">Okay!</button>
+                </footer>
+            </div>
+            <div class="mdc-dialog__backdrop"></div>
+        </aside>
+        <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
+            <h1 class="gc-fullWidth">Code</h1>
+            <div class="mdc-card app html5 js javascript material localStorage download" id="textEditor">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">Text Editor</h1>
+                  <h2 class="mdc-card__subtitle">A text editor made with HTML5.</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    <object data="/src/html5/textEditor" width="100%" height="480px"></object>
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button" onclick="newTab('/src/html5/textEditor')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
+                    <!--<button class="mdc-button" onclick="viewSource('/src/html5/textEditor')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
+                </section>
+            </div>
+            <div class="mdc-card vr a-frame voxel 3d" id="voxelForest">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">Voxel Models in A-Frame</h1>
+                  <h2 class="mdc-card__subtitle">A voxel model displayed in A-Frame.</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    <object data="/src/html5/aframe/forest" width="100%" height="480px"></object>
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button" onclick="newTab('/src/html5/aframe/forest')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
+                    <!--<button class="mdc-button" onclick="viewSource('/src/html5/aframe/forest')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
+                </section>
+            </div>
+            <div class="mdc-card keyboard controls js javascript" id="movement">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">Keyboard Controls</h1>
+                  <h2 class="mdc-card__subtitle">Keybord Controlled Movement</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    <object data="/src/html5/movement" width="100%" height="480px"></object>
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button" onclick="newTab('/src/html5/movement')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
+                    <!--<button class="mdc-button" onclick="viewSource('/src/html5/movement')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
+                </section>
+            </div>
+            <div class="mdc-card wasm console text" id="wasm1">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">My First WASM Test</h1>
+                  <h2 class="mdc-card__subtitle">My first test with WASM.</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    <object data="/src/wasm/wasm1.html" width="100%" height="480px"></object>
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button" onclick="newTab('/src/wasm/wasm1.html')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
+                    <!--<button class="mdc-button" onclick="viewSource('/src/wasm/wasm1.html')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
+                </section>
+            </div>
+            <div class="mdc-card css html5 animation transition" id="animatedTransitions">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">Animated Transitions</h1>
+                  <h2 class="mdc-card__subtitle">Animated Page Transitions using CSS3 and JS</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    <object data="/src/html5/animatedTransitions/" width="100%" height="480px"></object>
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button" onclick="newTab('/src/html5/animatedTransitions/')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
+                    <!--<button class="mdc-button" onclick="viewSource('/src/html5/animatedTransitions/')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
+                </section>
+            </div>
+        </main>
+        <script src="/js/am.js"></script>
+        <script src="/node_modules/material-components-web/dist/material-components-web.js"></script>
+        <script>mdc.autoInit()</script>
+        <script src="/javascript.js"></script>
+    </body>
+</html>

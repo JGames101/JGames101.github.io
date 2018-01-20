@@ -1,0 +1,5 @@
+{
+    "title":"v2.3y",
+    "subtitle":"A new news page, replacing Updates and TXT viewer.",
+    "body":"Version 2.3 adds a new page, news. It builds uppon what was added in Version 2.2, while also functioning as an updated updates page.<br>The page is a series of cards (using the Material Design Cards) for each news story. When clicked on, it opens up the story viewer, which loads the story from JSON, and moving on element on the same page, to make the process lightning fast.<br>Much like the txt viewer, full HTML objects, such as images, are supported, meaning that rich text is supported. At the bottom of the page, there are two buttons: Share, which opens the Web Share API Share Prompt, and Save Article Offline, which caches the article, so that you can view it offline. The news page is the first page on the site that supports proper offline support, because instead of showing the offline message, it actually shows the page, and, assuming that you have articles downloaded, you can view them.<br>This update also fixes the problem with the serviceo worker caching all files. It now only caches the pages it's meant to."
+}
