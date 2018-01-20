@@ -4,8 +4,6 @@ var urlsToCache = [
   '/styles/styles.css',
   '/javascript.js',
   '/js/jquery-3.2.1.min.js',
-  '/node_modules/material-components-web/dist/material-components-web.css',
-  '/node_modules/material-components-web/dist/material-components-web.js',
   '/js/am.js'
 ];
 
