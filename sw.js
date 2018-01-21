@@ -4,7 +4,12 @@ var urlsToCache = [
   '/styles/styles.css',
   '/javascript.js',
   '/js/jquery-3.2.1.min.js',
-  '/js/am.js'
+  '/js/am.js',
+  '/code/',
+  '/media/',
+  '/src/upadtes/',
+  '/js/home.js',
+  '/src/latest.json'
 ];
 
 
