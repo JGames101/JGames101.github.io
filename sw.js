@@ -7,7 +7,7 @@ var urlsToCache = [
   '/js/am.js',
   '/code/',
   '/media/',
-  '/src/upadtes/',
+  '/src/updates/',
   '/js/home.js',
   '/src/latest.json'
 ];
