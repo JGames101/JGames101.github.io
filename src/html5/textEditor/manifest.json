@@ -437,5 +437,7 @@
       "src": "ios/ios-launchimage-1024-768.png",
       "sizes": "1024x768"
     }
-  ]
+  ],
+  "start_url": "?pwa=true",
+  "lang": "en"
 }
