@@ -6,6 +6,10 @@ fileContainer.addEventListener("click", function( event ) { let fileMenu = new m
 helpContainer.addEventListener("click", function( event ) { let helpMenu = new mdc.menu.MDCSimpleMenu(document.querySelector('#helpMenu'));helpMenu.open = true; });
 viewContainer.addEventListener("click", function( event ) { let viewMenu = new mdc.menu.MDCSimpleMenu(document.querySelector('#viewMenu'));viewMenu.open = true; });
 
+window.onbeforeunload = function(e) {
+    return 'Are you sure you want to leave? You have unsaved changes.';
+};
+
 sessionStorage.setItem('openDocument', null);
 
 function openDialog(type) {
