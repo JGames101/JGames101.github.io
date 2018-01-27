@@ -1,4 +1,9 @@
 {
+  "short_name": "Notebook",
+  "name": "Notebook",
+  "theme_color": "#283593",
+  "background_color": "#283593",
+  "display": "standalone",
   "icons": [
     {
       "src": "windows10/Square71x71Logo.scale-400.png",

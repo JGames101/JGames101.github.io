@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="mdc-typography">
   <head>
-    <title>Text Editor</title>
+    <title>Notebook</title>
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="ios/ios-appicon-180-180.png">
@@ -10,6 +10,21 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+              navigator.serviceWorker.register('sw.js')
+              .then(function(swReg) {
+                  console.log('Service Worker is registered', swReg);
+                  swRegistration = swReg;
+              })
+              .catch(function(error) {
+                  console.error('Service Worker Error', error);
+              });
+                  
+          });
+      }
+    </script>
     <style>
       * { /* Material Theme Stuff */
         --mdc-theme-primary: #283593;
@@ -107,7 +122,7 @@
     <header class="mdc-toolbar mdc-toolbar--fixed">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <span class="mdc-toolbar__title">Text Editor</span>
+                <span class="mdc-toolbar__title">Notebook</span>
             </section>
         </div>
         <div class="mdc-toolbar__row">
