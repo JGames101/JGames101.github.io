@@ -1,15 +1,8 @@
-var CACHE_NAME = 'siteContainer';
+var CACHE_NAME = 'notebook';
 var urlsToCache = [
-  '/',
-  '/styles/styles.css',
-  '/javascript.js',
-  '/js/jquery-3.2.1.min.js',
-  '/js/am.js',
-  '/code/',
-  '/media/',
-  '/src/updates/',
-  '/page.js',
-  '/src/latest.json'
+  'index.html',
+  'javascript.js',
+  'styles.css'
 ];
 
 
@@ -23,7 +16,6 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  if (!navigator.onLine) {
     event.respondWith(
       caches.match(event.request)
         .then(function(response) {
@@ -35,6 +27,5 @@ self.addEventListener('fetch', function(event) {
         }
       )
     );
-  };
 });
   
