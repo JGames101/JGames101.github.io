@@ -1,7 +1,10 @@
-[
-    {
-        "version":4.0,
-        "title":"The Epsilon Update",
-        "subtitle":"A Complete Recode and Redesign"
-    }
-]
+[{
+    "version":4.1,
+    "title":"4.1 Epsilon Update",
+    "subtitle":"Faster Page Transitions"
+},
+{
+    "version":4.0,
+    "title":"The Epsilon Update",
+    "subtitle":"A Complete Recode and Redesign"
+}]

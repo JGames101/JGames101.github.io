@@ -1,5 +1,11 @@
 [
     {
+        "title":"Version 4.1ε",
+        "subtitle":"Even Faster Page Loading",
+        "body":"When using a modern browser, pages load even faster with new internal features.",
+        "actions":[{"text":"read","raised":false,"action":"/src/updates/4.1.json"}]
+    },
+    {
         "title":"Version 4.0ε",
         "subtitle":"A Complete Internal and External Redesign of the Site",
         "body":"Version 4.0ε redesigns the UI of the site with CSS grid everywhere, consistent colours and a dark theme, and a new code page with new HTML tests.",
@@ -27,6 +33,6 @@
         "title":"objectStorage System",
         "subtitle":"A new internal system",
         "body":"objectStorage adds features to JavaScript's built in methods to allow you to use getObject and setObject for localStorage and sessionStorage.",
-        "actions":[{"text":"read","raised":false,"action":"/src/articles/wasm1.json"}]
+        "actions":[{"text":"read","raised":false,"action":"/src/articles/objectStorage.json"}]
     }
 ]

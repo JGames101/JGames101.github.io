@@ -50,9 +50,9 @@
     </head>
     <header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall">
         <div class="mdc-toolbar__row">
-            <a class="noDec" href="/"><span class="mdc-toolbar__title">Home</span></a>
-            <a class="noDec" href="/code"><span class="mdc-toolbar__title">Code</span></a>
-            <a class="noDec" href="/media"><span class="mdc-toolbar__title">Media</span></a>
+            <a class="noDec link" href="/"><span class="mdc-toolbar__title">Home</span></a>
+            <a class="noDec link" href="/code"><span class="mdc-toolbar__title">Code</span></a>
+            <a class="noDec link" href="/media"><span class="mdc-toolbar__title">Media</span></a>
         </div>
     </header>
     <aside class="mdc-temporary-drawer mdc-drawer--temporary mdc-typography" id="navDrawer">
@@ -63,13 +63,13 @@
             </div>
           </header>
           <nav class="mdc-drawer__content mdc-list">
-            <a class="mdc-list-item mdc-temporary-drawer--selected" href="/">
+            <a class="link mdc-list-item mdc-temporary-drawer--selected" href="/">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</i>Home
             </a>
-            <a class="mdc-list-item" href="/code">
+            <a class="link mdc-list-item" href="/code">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">code</i>Code
             </a>
-            <a class="mdc-list-item" href="/media">
+            <a class="link mdc-list-item" href="/media">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">video_library</i>Media
             </a>
             <a class="mdc-list-item" onclick="openOptions()" style="position:fixed;bottom:0px;cursor:pointer;">
@@ -109,7 +109,7 @@
                 </section>
                 <section class="mdc-card__actions">
                   <a class="link" href="/code"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a class="link" href="/code" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
+                  <a href="/code" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
                 </section>
             </div>
             <div class="mdc-card">
@@ -119,7 +119,7 @@
                 </section>
                 <section class="mdc-card__actions">
                   <a class="link" href="/src/updates"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a class="link" href="/src/updates" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
+                  <a href="/src/updates" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
                 </section>
             </div>
             <div class="mdc-card">
@@ -129,15 +129,15 @@
                 </section>
                 <section class="mdc-card__actions">
                   <a class="link" href="/media"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a class="link" href="/media" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
+                  <a href="/media" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
                 </section>
             </div>
         </main>
         <script src="/js/am.js"></script>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <script>mdc.autoInit()</script>
-        <script src="javascript.js"></script>
         <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="/js/home.js"></script>
+        <script src="javascript.js"></script>
+        <script src="/page.js"></script>
     </body>
 </html>

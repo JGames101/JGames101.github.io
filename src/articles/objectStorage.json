@@ -1,0 +1,5 @@
+{
+    "title":"ObjectStorage",
+    "subtitle":"The ObjectStorage system used in Epsilon.",
+    "body":"In the Epsilon update, many features are used with localStorage. However, localStorage does not have native support for objects. to make the process simpler, a script called am.js adds two things to the localStorage and sessionStorage methods: getObject and setObject. These simply take the object, and stringify/parse the object."
+}

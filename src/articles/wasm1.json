@@ -1,5 +1,5 @@
 {
     "title":"My First Test With WASM",
     "subtitle":"Setting up Emscripten and compiling to WASM",
-    "body":"<h2>Setting Up Emscripten</h2><br>THe first step in using WebAssembly is setting up Emscripten."
+    "body":"<h2>Setting Up Emscripten</h2>The first step in using WebAssembly is setting up Emscripten. This step took a very long time, because following the instructions on the WebAssembly site, there was an error everytime I tried. Eventually though, I started following the MDN instructions, which fixed my problem.<h2>Writing</h2>After that, all I had to do was write an \"Application\". I made a basic template for emscripten that makes the console fullscreen, and then made a console application."
 }

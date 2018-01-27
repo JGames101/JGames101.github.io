@@ -1,6 +1,20 @@
 site = {
-    "version":4.0
+    "version":4.1
 }
+
+linkCalculator();
+
+function linkCalculator () {
+    var links = document.querySelectorAll('.link');
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        link.addEventListener('click', function(event){
+            event.preventDefault();
+            loadPage(this.href);
+        });
+    };
+};
+
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET",yourUrl,false);
@@ -32,24 +46,28 @@ function setTheme() {
 
 
 if (localStorage.getItem('user') == null) {
-    localStorage.setObject('user', {"latestVersion":"4.0","redirect":"none"}); //Redirect can be set to none, delta, gamma, beta, or alpha. Latest Version is when the site was last accessed.
+    localStorage.setObject('user', {"latestVersion":site.version,"redirect":"none"}); //Redirect can be set to none, delta, gamma, beta, or alpha. Latest Version is when the site was last accessed.
     openDialog('Welcome to James M: Epsilon!', 'This new version of the site is a complete recode and redesign.');
     var user = localStorage.getObject('user');
 } else {
     var user = localStorage.getObject('user');
-    /*if (user.latestVersion < site.version) {
-        var i = 0;
-        var versions = JSON.parse(am.http.get('/src/changelog.json'));
-        console.log(versions);
-        var versionList = '<ul class="mdc-list mdc-list--two-line">';
-        console.log(versions[i]);
-        while (versions[i].version != site.version || i != versions.length) {
-            versionList += '<li class="mdc-list-item"><span class="mdc-list-item__text">' + versions[i].title + '<span class="mdc-list-item__secondary-text">' + versions[i].subtitle + '</span></span></li>';
-            i++;
-        }
-        versionList += '</ul>';
-        openDialog('Some Things have Changed!', versionList);
-    };*/
+    if (user.latestVersion < site.version) {
+        $.get("/src/changelog.json", function (data) {
+            var i = 0;
+            var versionList = '<div class="mdc-card"><ul class="mdc-list mdc-list--two-line">';
+            var current = data[i];
+            while (current.version != user.latestVersion) {
+                versionList += '<li class="mdc-list-item"><span class="mdc-list-item__text">' + current.title + '<span class="mdc-list-item__secondary-text">' + current.subtitle + '</span></span></li>';
+                i++;
+                current = data[i];
+            }
+            versionList += '</ul></div>';
+            console.log(versionList);
+            openDialog('Some Things have Changed!', versionList);
+            user.latestVersion = site.version;
+            localStorage.setObject('user', user);
+        });
+    };
 };
 
 function urlB64ToUint8Array(base64String) {
@@ -107,26 +125,6 @@ openArticle = function readUpdate(update) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         var article = JSON.parse(this.responseText);
-        /*var header = document.createElement('header');
-        var reader = document.createElement("div");
-        var title = document.createElement("span");
-        var body = document.createElement("p");
-        var background = document.createElement('div');background.className = "articleBackground";
-        var close = document.createElement("div");close.innerHTML='<i class="mdc-icon-toggle material-icons mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" role="button" aria-label="Close" aria-pressed="false" tabindex="0" onclick="closeArticle()">close</i>';
-        close.style.float = 'left';
-        reader.className = 'article';
-        header.id = "articleHeader";
-        title.id = "articleTitle";
-        body.id = "articleBody";
-        title.innerHTML = article.title;
-        body.innerHTML = article.body;
-        header.appendChild(title);
-        header.appendChild(close);
-        reader.appendChild(header);
-        reader.appendChild(body);
-        document.body.appendChild(reader); 
-        document.body.appendChild(background); 
-        document.body.style.overflow = 'hidden';*/
         openDialog(article.title, article.body, true);
         var dialog = new mdc.dialog.MDCDialog(document.querySelector('#dialogBox'));
         var dialogActions = document.querySelector('.mdc-dialog__footer');
@@ -137,13 +135,6 @@ openArticle = function readUpdate(update) {
     xmlhttp.open("GET", update, true);
     xmlhttp.send();
 };
-
-/*function closeArticle() {
-    document.querySelectorAll('.article').id = 'closeArticle';
-    document.querySelectorAll('.articleBackground').id = 'fadeOut';
-    setTimeout(function(){document.body.removeChild(document.querySelector('.article'));document.body.removeChild(document.querySelector('.articleBackground')),document.body.style.overflow = 'initial';},0);
-    setTimeout(function(){document.body.removeChild(document.querySelector('.article'));document.body.removeChild(document.querySelector('.articleBackground')),document.body.style.overflow = 'initial';},0);
-};*/
 
 function fullscreen(elementId) {
     var elem = document.getElementById(elementId);
@@ -178,4 +169,26 @@ setOption = function(property, value){
     };
     eval('options.' + property + ' = "' + value + '"');
     localStorage.setObject('options', options);
+};
+
+function loadPage(page) {
+    $.get(page + "/index.html", function (data) {
+        var html = $(data);
+        var newPage = $('#content', html);
+        var content = newPage.prevObject[35];
+        var toolbar = newPage.prevObject[27];
+        var drawer = newPage.prevObject[29];
+        document.querySelector('#content').innerHTML = content.innerHTML;
+        document.querySelector('.mdc-toolbar--waterfall').innerHTML = toolbar.innerHTML;
+        document.querySelector('#navDrawer').innerHTML = drawer.innerHTML;
+        linkCalculator();
+        $.getScript( page + "/page.js" );
+        var state = {"redirect":false};
+        history.pushState(state, page, page);
+    });
+};
+
+window.onpopstate = function(event) {
+    loadPage(document.location);
+    console.log(document.location);
 };

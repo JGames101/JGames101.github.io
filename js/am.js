@@ -31,14 +31,14 @@ Element.prototype.removeClass = function(theClass) {
     return this;
 }
 Element.prototype.class = function(newClass) {
-    this.className == newClass;
+    this.className = newClass;
     return this;
 }
-
 
 am = {
     "v":0.1,
     "version":0.1,
+    "title":"amDev",
     "e": function(selector) {
         if (document.querySelectorAll(selector).length == 1) {
             return document.querySelector(selector);

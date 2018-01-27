@@ -97,6 +97,31 @@
   }
 }
 
+@keyframes mainOut {
+  0% {
+    position:absolute;
+    left:0%;
+    width:100%;
+  }
+  100% {
+    position:absolute;
+    left:-100%;
+    width:100%;
+  }
+}
+@keyframes mainIn {
+  0% {
+    position:absolute;
+    left:100%;
+    width:100%;
+  }
+  0% {
+    position:absolute;
+    left:0%;
+    width:100%;
+  }
+}
+
 .aRainbow {
     animation: rainbow 5s infinite;
 }
@@ -113,4 +138,11 @@
 
 #closeArticle {
   animation: articleExit 0.5s;
+}
+
+#oldContent {
+  animation: mainOut 0.25s;
+}
+#newContent {
+  animation: mainIn 0.25s;
 }
