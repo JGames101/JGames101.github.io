@@ -1,8 +1,12 @@
 site = {
-    "version":4.1
+    "version":4.101
 }
 
-linkCalculator();
+if (window.history && history.pushState) {
+    linkCalculator();
+} else {
+    document.querySelector('.fixedFab').classList.add('no-history');
+};
 
 function linkCalculator () {
     var links = document.querySelectorAll('.link');

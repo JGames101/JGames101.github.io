@@ -125,9 +125,9 @@
 .aRainbow {
     animation: rainbow 5s infinite;
 }
-/*.fixedFab {
+.fixedFab:not(.no-history) {
     animation: fab-enter 2s;
-}*/
+}
 .articleBackground {
   animation: fadeIn 0.5s;
 }
