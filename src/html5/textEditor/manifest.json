@@ -438,6 +438,6 @@
       "sizes": "1024x768"
     }
   ],
-  "start_url": "/?pwa=true",
+  "start_url": "index.html",
   "lang": "en"
 }
