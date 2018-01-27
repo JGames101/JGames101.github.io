@@ -1,8 +1,10 @@
 // Add Event Listeners for controlling the menus
 var fileContainer = document.getElementById('fileContainer');
 var helpContainer = document.getElementById('helpContainer');
+var viewContainer = document.getElementById('viewContainer');
 fileContainer.addEventListener("click", function( event ) { let fileMenu = new mdc.menu.MDCSimpleMenu(document.querySelector('#fileMenu'));fileMenu.open = true; });
 helpContainer.addEventListener("click", function( event ) { let helpMenu = new mdc.menu.MDCSimpleMenu(document.querySelector('#helpMenu'));helpMenu.open = true; });
+viewContainer.addEventListener("click", function( event ) { let viewMenu = new mdc.menu.MDCSimpleMenu(document.querySelector('#viewMenu'));viewMenu.open = true; });
 
 sessionStorage.setItem('openDocument', null);
 

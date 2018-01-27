@@ -4,8 +4,17 @@
     <title>Text Editor</title>
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="ios/ios-appicon-180-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="firefox/firefox-general-32-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="firefox/firefox-general-16-16.png">
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * { /* Material Theme Stuff */
+        --mdc-theme-primary: #283593;
+      }
+    </style>
   </head>
   <body>
     <aside id="blankDialog"
@@ -122,6 +131,15 @@
                             <li class="mdc-list-item" onclick="showPopup('About This Text Editor', 'This is a text editor created in HTML5, with Material Components for UI. It saves files using localStorage, and can export files to your computer.')" role="menuitem" tabindex="0">About...</li>
                         </ul>
                     </div>
+                </div>
+                <div class="toolbar mdc-menu-anchor" id="viewContainer" style="display:none">
+                  <a class="mdc-toolbar__icon" id="viewButton">View</a>
+                  <div class="mdc-simple-menu" id="viewMenu" tabindex="-1">
+                      <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+                          <li class="mdc-list-item" onclick="fontOptions()" role="menuitem" tabindex="0">Font...</li>
+                          <li class="mdc-list-item" onclick="colourOptions()" role="menuitem" tabindex="0">Colour...</li>
+                      </ul>
+                  </div>
                 </div>
             </section>
         </div>
