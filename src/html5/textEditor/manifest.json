@@ -438,6 +438,6 @@
       "sizes": "1024x768"
     }
   ],
-  "start_url": "/src/html5/textEditor/?pwa=true",
+  "start_url": "/?pwa=true",
   "lang": "en"
 }
