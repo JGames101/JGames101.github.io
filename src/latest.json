@@ -1,5 +1,11 @@
 [
     {
+        "title":"Version 4.11ε",
+        "subtitle":"The <i>New</i> New News Page",
+        "body":"There's now a news page, that lists all of the articles, even the ones that aren't recent enough to be listed on the homescreen.",
+        "actions":[{"text":"read","raised":false,"action":"/src/updates/4.11.json"}]
+    },
+    {
         "title":"Version 4.1ε",
         "subtitle":"Even Faster Page Loading",
         "body":"When using a modern browser, pages load even faster with new internal features.",

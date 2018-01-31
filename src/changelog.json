@@ -1,4 +1,9 @@
 [{
+    "version":4.11,
+    "title":"4.11 Epsilon Update",
+    "subtitle":"The <i>New</i> New News Page"
+},
+{
     "version":4.101,
     "title":"4.101 Epsilon Update",
     "subtitle":"Bugfixes & Animations"

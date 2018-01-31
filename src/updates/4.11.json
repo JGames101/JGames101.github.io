@@ -1,0 +1,5 @@
+{
+    "title":"4.11 Epsilon",
+    "subtitle":"The <i>New</i> New News Page",
+    "body":"<img width='100%' src='/media/feature/News.png'><h2>The <i>New</i> New News Page</h2>Version 2.3 Gamma introduced the news page, which had a list of articles that could be read. Originally, this was going to integrate with the homescreen's newfeed, and sort the news articles by timestamp. During development, though, it was decided that to simplify the site, it would just be a predetermined list.<br>The news page was removed in Epsilon, because it was not a worthwhile feature, when the latest section on the homescreen showed all stories. Now, though, the latest section is limited to 10 stories, so the newspage has been added. When that 10 story limit is reached, an eleventh card will appear in the latest section, a link to more news.<br><br>This new newspage is different from the old one. Instead of being a pre-programmed list of news stories, it generates using the same file as the latest section, but showing every article."
+}

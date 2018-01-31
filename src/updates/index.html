@@ -72,6 +72,9 @@
             <a class="link mdc-list-item" href="/media">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">video_library</i>Media
             </a>
+            <a class="link mdc-list-item" href="/src/news">
+                <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">library_books</i>News
+            </a>
             <a class="mdc-list-item" onclick="openOptions()" style="position:fixed;bottom:0px;cursor:pointer;">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">settings</i>Options
             </a>
@@ -103,6 +106,20 @@
         <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
             <h1 class="gc-fullWidth">Updates</h1>
             <h2 class="gc-fullWidth">Version History</h2>
+            <div class="mdc-card epsilon hundredth" id="4.11">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v4.11 Epsilon</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                  There's now a news page!
+                  At the end of the latest section, there's a button for "more news". This button takes you to the news page.
+                  The news page has all the same articles as the latest section, but has no limit on the amount.
+                  The latest section on the homepage is now limited to 10 articles.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/4.11.json')">read</button>
+                </section>
+            </div>
             <div class="mdc-card epsilon thousandth" id="4.101">
                 <section class="mdc-card__primary">
                   <h1 class="mdc-card__title mdc-card__title--large">v4.101 Epsilon</h1>

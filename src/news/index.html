@@ -7,7 +7,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/src/icon/firefox/firefox-general-16-16.png">
         <title>James M</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="/styles/styles.css">
         <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -63,7 +63,7 @@
             </div>
           </header>
           <nav class="mdc-drawer__content mdc-list">
-            <a class="link mdc-list-item mdc-temporary-drawer--selected" href="/">
+            <a class="link mdc-list-item" href="/">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</i>Home
             </a>
             <a class="link mdc-list-item" href="/code">
@@ -72,7 +72,7 @@
             <a class="link mdc-list-item" href="/media">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">video_library</i>Media
             </a>
-            <a class="link mdc-list-item" href="/src/news">
+            <a class="link mdc-list-item mdc-temporary-drawer--selected" href="/src/news">
               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">library_books</i>News
             </a>
             <a class="mdc-list-item" onclick="openOptions()" style="position:fixed;bottom:0px;cursor:pointer;">
@@ -100,57 +100,13 @@
             <div class="mdc-dialog__backdrop"></div>
         </aside>
         <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
-            <h1 class="gc-fullWidth">James M</h1>
-            <h2 class="gc-fullWidth">Latest</h2>
-            <div id="latestBox" class="gc-fullWidth grid gc-list--horizontal"></div>
-            <h2 class="gc-fullWidth">Site</h2>
-            
-            <div class="mdc-card">
-                <section class="mdc-card__primary">
-                  <h1 class="mdc-card__title mdc-card__title--large">Code</h1>
-                  <h2 class="mdc-card__subtitle">The Hub for all JS, JQuery, and HTML5 Tests</h2>
-                </section>
-                <section class="mdc-card__actions">
-                  <a class="link" href="/code"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a href="/code" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
-                </section>
-            </div>
-            <div class="mdc-card">
-                <section class="mdc-card__primary">
-                  <h1 class="mdc-card__title mdc-card__title--large">Version History</h1>
-                  <h2 class="mdc-card__subtitle">History of the site.</h2>
-                </section>
-                <section class="mdc-card__actions">
-                  <a class="link" href="/src/updates"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a href="/src/updates" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
-                </section>
-            </div>
-            <div class="mdc-card">
-                <section class="mdc-card__primary">
-                  <h1 class="mdc-card__title mdc-card__title--large">Media</h1>
-                  <h2 class="mdc-card__subtitle">Photos and Videos</h2>
-                </section>
-                <section class="mdc-card__actions">
-                  <a class="link" href="/media"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a href="/media" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
-                </section>
-            </div>
-            <div class="mdc-card">
-                <section class="mdc-card__primary">
-                  <h1 class="mdc-card__title mdc-card__title--large">News</h1>
-                  <h2 class="mdc-card__subtitle">The Latest (and oldest) About the site.</h2>
-                </section>
-                <section class="mdc-card__actions">
-                  <a class="link" href="/src/news"><button class="mdc-button mdc-button--compact mdc-card__action">view</button></a>
-                  <a href="/src/news" target="_blank"><button class="mdc-button mdc-button--compact mdc-card__action">new tab</button></a>
-                </section>
-            </div>
+            <h1 class="gc-fullWidth">News</h1>
         </main>
         <script src="/js/am.js"></script>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <script>mdc.autoInit()</script>
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="javascript.js"></script>
-        <script src="/page.js"></script>
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/javascript.js"></script>
+        <script src="page.js"></script>
     </body>
 </html>

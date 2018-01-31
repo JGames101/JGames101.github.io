@@ -1,5 +1,5 @@
 site = {
-    "version":4.101
+    "version":4.11
 }
 
 if (window.history && history.pushState) {
@@ -189,6 +189,7 @@ function loadPage(page) {
         $.getScript( page + "/page.js" );
         var state = {"redirect":false};
         history.pushState(state, page, page);
+        window.scrollTo(0, 0); 
     });
 };
 

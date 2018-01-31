@@ -86,3 +86,17 @@ a.noDec {
     min-height: calc(100% - 154px);
     height: calc(100% - 154px);
 }
+
+#moreNews {
+    background-color: var(--mdc-theme-secondary);
+    width:320px;
+}
+#moreNews > .mdc-typography--title {
+    color:var(--mdc-theme-text-primary-on-secondary);
+}
+#moreNews > .material-icons {
+    font-size:128px;
+    text-align:center;
+    color:var(--mdc-theme-text-primary-on-secondary);
+    margin-top:16px;
+}
