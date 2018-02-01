@@ -9,7 +9,8 @@ var urlsToCache = [
   '/media/',
   '/src/updates/',
   '/page.js',
-  '/src/latest.json'
+  '/src/latest.json',
+  '/src/app.html'
 ];
 
 

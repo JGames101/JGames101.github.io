@@ -53,6 +53,10 @@
             <a class="noDec link" href="/"><span class="mdc-toolbar__title">Home</span></a>
             <a class="noDec link" href="/code"><span class="mdc-toolbar__title">Code</span></a>
             <a class="noDec link" href="/media"><span class="mdc-toolbar__title">Media</span></a>
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+                <input type="search" name="searchBox" id="searchBox" placeholder="Search...">
+                <i class="mdc-icon-toggle material-icons" id="moreButton" data-mdc-auto-init="MDCRipple" role="button" aria-pressed="false" aria-label="more" tabindex="0"data-toggle-on='{"label": "less", "content": "apps"}'data-toggle-off='{"label": "more", "content": "apps"}'>apps</i>
+            </section>
         </div>
     </header>
     <aside class="mdc-temporary-drawer mdc-drawer--temporary mdc-typography" id="navDrawer">
@@ -106,6 +110,20 @@
         <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
             <h1 class="gc-fullWidth">Updates</h1>
             <h2 class="gc-fullWidth">Version History</h2>
+            <div class="mdc-card epsilon minor" id="4.2">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v4.2 Epsilon</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                  There is now more than just links in the toolbar. There is now a searchbar, and an apps button.
+                  The apps button opens a menu with links to notebook, and nth-frame.
+                  The searchbar lets you search the site for a specific keyword.
+                  It looks through the text inside cards, and puts those in a list.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/4.11.json')">read</button>
+                </section>
+            </div>
             <div class="mdc-card epsilon hundredth" id="4.11">
                 <section class="mdc-card__primary">
                   <h1 class="mdc-card__title mdc-card__title--large">v4.11 Epsilon</h1>

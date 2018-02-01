@@ -100,3 +100,54 @@ a.noDec {
     color:var(--mdc-theme-text-primary-on-secondary);
     margin-top:16px;
 }
+#searchBox {
+	/*font-size:24px;*/
+	border-radius:8px;
+	border: 0px;
+    width: 25%;
+    background-color:#ededed;
+    padding-left:14px;
+    margin-top: 12px;
+    height:36px;
+    transition-duration:0.4s;
+}
+
+#searchBox:focus {
+    box-shadow:0 2px 4px -1px rgba(128, 128, 128,.2), 0 4px 5px 0 rgba(128, 128, 128,.14), 0 1px 10px 0 rgba(128, 128, 128,.12);
+}
+
+.searchContainer {
+    grid-column: 1 / -1;
+}
+
+#searchWindow {
+    background-color:rgba(255, 255, 255, 0.9);
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    min-height:100%;
+    z-index:3;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: start;
+    grid-column-gap: 16px;
+    overflow:scroll;
+}
+
+#searchWindow .mdc-card {
+    background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+@media (min-width: 0px) and (max-width: 780px) {
+    #searchBox {
+        width: 100%;
+    }
+}

@@ -1,5 +1,11 @@
 [
     {
+        "title":"Version 4.2ε",
+        "subtitle":"Search and Apps",
+        "body":"The toolbar now has two new things on the right: a searchbar, and a more button. They both can be used to explore the site.",
+        "actions":[{"text":"read","raised":false,"action":"/src/updates/4.2.json"}]
+    },
+    {
         "title":"Version 4.11ε",
         "subtitle":"The <i>New</i> New News Page",
         "body":"There's now a news page, that lists all of the articles, even the ones that aren't recent enough to be listed on the homescreen.",

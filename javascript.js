@@ -1,5 +1,5 @@
 site = {
-    "version":4.11
+    "version":4.2
 }
 
 if (window.history && history.pushState) {
@@ -190,6 +190,18 @@ function loadPage(page) {
         var state = {"redirect":false};
         history.pushState(state, page, page);
         window.scrollTo(0, 0); 
+        document.querySelector('#moreButton').addEventListener('click', function(){
+            if (document.querySelector('#appsList') == null) {
+                $.get("/src/app.html", function (data) {
+                    var wrapper = document.createElement('div');
+                    wrapper.innerHTML = data;
+                    var appsList = wrapper.firstChild;
+                    document.body.appendChild(appsList);
+                }); 
+            } else {
+                document.body.removeChild(document.querySelector('#appsList'));
+            };
+        });
     });
 };
 
@@ -197,3 +209,74 @@ window.onpopstate = function(event) {
     loadPage(document.location);
     console.log(document.location);
 };
+
+prevValue = '';
+
+function search() {
+    if (document.querySelector('#searchBox').value != '') {
+        if (document.querySelector('#searchBox').value != prevValue) {
+            if (document.querySelector('#searchWindow') == null) {
+                var searchDialog = document.createElement('div');
+                searchDialog.id = 'searchWindow';
+                document.body.appendChild(searchDialog);
+            };
+            var result = '<h1 class="gc-fullWidth">Search Results</h1>';
+            $.get("/src/updates/index.html", function (data) {
+                var html = $(data);
+                var query = document.querySelector('#searchBox').value;
+                var results = $('.mdc-card:contains("'+ query +'")', html);
+                if (results.length > 0) {
+                    result += '<h2 class="gc-fullWidth">Updates</h2>';
+                    for (var i=0; results.length > i; i++) {
+                        result += results[i].outerHTML;
+                    };
+                };
+                $.get("/code/index.html", function (data) {
+                    var html = $(data);
+                    var query = document.querySelector('#searchBox').value;
+                    var results = $('.mdc-card:contains("'+ query +'")', html);
+                    if (results.length > 0) {
+                        result += '<h2 class="gc-fullWidth">Code</h2>'; 
+                        for (var i=0; results.length > i; i++) {
+                            result += results[i].outerHTML;
+                        };
+                    };
+                    $.get("/media/index.html", function (data) {
+                        var html = $(data);
+                        var query = document.querySelector('#searchBox').value;
+                        var results = $('.mdc-card:contains("'+ query +'")', html);
+                        if (results.length > 0) {
+                            result += '<h2 class="gc-fullWidth">Media</h2>'; 
+                            for (var i=0; results.length > i; i++) {
+                                result += results[i].outerHTML;
+                            };
+                        };
+                        document.querySelector('#searchWindow').innerHTML = result;
+                    }); 
+                }); 
+            }); 
+        };
+    } else {
+        if (document.querySelector('#searchWindow') != null) {
+            document.body.removeChild(document.querySelector('#searchWindow'));
+        };
+    }
+    prevValue = document.querySelector('#searchBox').value;
+};
+
+document.querySelector('#moreButton').addEventListener('click', function(){
+    if (document.querySelector('#appsList') == null) {
+        $.get("/src/app.html", function (data) {
+            var wrapper = document.createElement('div');
+            wrapper.innerHTML = data;
+            var appsList = wrapper.firstChild;
+            document.body.appendChild(appsList);
+        }); 
+    } else {
+        document.body.removeChild(document.querySelector('#appsList'));
+    };
+});
+
+window.setInterval(function(){
+    search();
+}, 33);
