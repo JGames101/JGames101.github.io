@@ -1,0 +1,9 @@
+@import url('/src/material/card/dist/mdc.card.min.css');
+@import url('/src/material/button/dist/mdc.button.min.css');
+@import url('/src/material/fab/dist/mdc.fab.min.css');
+@import url('/src/material/toolbar/dist/mdc.toolbar.min.css');
+@import url('/src/material/drawer/dist/mdc.drawer.min.css');
+@import url('/src/material/typography/dist/mdc.typography.min.css');
+@import url('/src/material/chip/dist/mdc.chip.min.css');
+
+/* This file loads all Material Components elements synchronously, including mdl chips, and other features ported by me. */

@@ -8,7 +8,10 @@
         <title>James M</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/styles.css">
-        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+        <link rel="stylesheet" href="/styles/material.css">
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" media="async" onload="this.media='all'">
+        <link rel="stylesheet" href="/node_modules/material-components-web/dist/material-components-web.css" media="async" onload="this.media='all'">
+        <script src="/src/webcomponentsjs/webcomponents-loader.js"></script>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
         <meta name="apple-mobile-web-app-title" content="JGames101">
@@ -121,6 +124,7 @@
                     <button class="mdc-button" onclick="newTab('/src/html5/textEditor')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
                     <!--<button class="mdc-button" onclick="viewSource('/src/html5/textEditor')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
                 </section>
+                <search-tags>app html5 js javascript material localStorage download text editor TEXT EDITOR</search-tags>
             </div>
             <div class="mdc-card vr a-frame voxel 3d" id="voxelForest">
                 <section class="mdc-card__primary">
@@ -134,6 +138,7 @@
                     <button class="mdc-button" onclick="newTab('/src/html5/aframe/forest')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
                     <!--<button class="mdc-button" onclick="viewSource('/src/html5/aframe/forest')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
                 </section>
+                <search-tags>vr a-frame voxel 3d</search-tags>
             </div>
             <div class="mdc-card keyboard controls js javascript" id="movement">
                 <section class="mdc-card__primary">
@@ -147,6 +152,7 @@
                     <button class="mdc-button" onclick="newTab('/src/html5/movement')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
                     <!--<button class="mdc-button" onclick="viewSource('/src/html5/movement')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
                 </section>
+                <search-tags>keyboard controls js javascript</search-tags>
             </div>
             <div class="mdc-card wasm console text" id="wasm1">
                 <section class="mdc-card__primary">
@@ -160,6 +166,7 @@
                     <button class="mdc-button" onclick="newTab('/src/wasm/wasm1.html')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
                     <!--<button class="mdc-button" onclick="viewSource('/src/wasm/wasm1.html')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
                 </section>
+                <search-tags>wasm console text test first my</search-tags>
             </div>
             <div class="mdc-card css html5 animation transition" id="animatedTransitions">
                 <section class="mdc-card__primary">
@@ -173,6 +180,7 @@
                     <button class="mdc-button" onclick="newTab('/src/html5/animatedTransitions/')"><i class="material-icons mdc-button__icon">fullscreen</i>Fullscreen</button>
                     <!--<button class="mdc-button" onclick="viewSource('/src/html5/animatedTransitions/')"><i class="material-icons mdc-button__icon">code</i>View Source</button>-->
                 </section>
+                <search-tags>css html5 animation transition</search-tags>
             </div>
         </main>
         <script src="/js/am.js"></script>
