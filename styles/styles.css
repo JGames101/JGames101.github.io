@@ -145,6 +145,12 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+.tagsList {
+    display:none !important;
+}
+.tagsList > * {
+    display:inline;
+}
 
 @media (min-width: 0px) and (max-width: 780px) {
     #searchBox {

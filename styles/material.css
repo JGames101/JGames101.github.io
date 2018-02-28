@@ -5,5 +5,3 @@
 @import url('/src/material/drawer/dist/mdc.drawer.min.css');
 @import url('/src/material/typography/dist/mdc.typography.min.css');
 @import url('/src/material/chip/dist/mdc.chip.min.css');
-
-/* This file loads all Material Components elements synchronously, including mdl chips, and other features ported by me. */

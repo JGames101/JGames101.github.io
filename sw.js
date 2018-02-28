@@ -10,7 +10,9 @@ var urlsToCache = [
   '/src/updates/',
   '/page.js',
   '/src/latest.json',
-  '/src/app.html'
+  '/src/app.html',
+  '/src/material/material-components-web.min.css',
+  '/src/webcomponentsjs/webcomponents-loader.js',
 ];
 
 

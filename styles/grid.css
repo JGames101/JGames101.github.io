@@ -19,3 +19,7 @@
 .gc-list--vertical > * {
     grid-column:1;
 }
+
+.gc-list--fit-content {
+    grid-template-columns: minmax(min-content, max-content);
+};

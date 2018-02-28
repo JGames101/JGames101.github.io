@@ -57,7 +57,16 @@
             <a class="noDec link" href="/media"><span class="mdc-toolbar__title">Media</span></a>
             <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
                 <input type="search" name="searchBox" id="searchBox" placeholder="Search...">
-                <i class="mdc-icon-toggle material-icons" id="moreButton" data-mdc-auto-init="MDCRipple" role="button" aria-pressed="false" aria-label="more" tabindex="0"data-toggle-on='{"label": "less", "content": "apps"}'data-toggle-off='{"label": "more", "content": "apps"}'>apps</i>
+                <div class="mdc-menu-anchor">
+                    <i class="mdc-icon-toggle material-icons" id="moreButton" data-mdc-auto-init="MDCRipple" role="button" aria-pressed="false" aria-label="more" tabindex="0"data-toggle-on='{"label": "less", "content": "apps"}'data-toggle-off='{"label": "more", "content": "apps"}'>apps</i>
+                    <div class="mdc-menu" tabindex="-1">
+                        <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+                            <a href="/"><li class="mdc-list-item" role="menuitem" tabindex="0">James M</li></a>
+                            <a href="/src/html5/textEditor"><li class="mdc-list-item" role="menuitem" tabindex="0">Notebook</li></a>
+                            <a href="/nth-frame"><li class="mdc-list-item" role="menuitem" tabindex="0">nth frame</li></a>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </div>
     </header>
@@ -111,7 +120,48 @@
         </aside>
         <main id="content" class="grid mdc-toolbar-fixed-adjust scrollBody">
             <h1 class="gc-fullWidth">Updates</h1>
+            <div class="mdc-chip-set tagsList">
+                <div class="mdc-chip" onclick="filter('epsilon')">
+                    <div class="mdc-chip__text">Epsilon</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('major')">
+                    <div class="mdc-chip__text">Major</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('minor')">
+                    <div class="mdc-chip__text">Minor</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('hundredth')">
+                    <div class="mdc-chip__text">Hundredth</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('thousandth')">
+                    <div class="mdc-chip__text">Thousandth</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('delta')">
+                    <div class="mdc-chip__text">Delta</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('gamma')">
+                    <div class="mdc-chip__text">Gamma</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('beta')">
+                    <div class="mdc-chip__text">Beta</div>
+                </div>
+                <div class="mdc-chip" onclick="filter('alpha')">
+                    <div class="mdc-chip__text">Alpha</div>
+                </div>
+            </div>
             <h2 class="gc-fullWidth">Version History</h2>
+            <div class="mdc-card epsilon hundredth" id="4.202">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">v4.202 Epsilon</h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                  The site now has a search-tags element for better search.
+                </section>
+                <section class="mdc-card__actions">
+                    <button class="mdc-button mdc-button--compact mdc-card__action" onclick="openArticle('/src/updates/4.21.json')">read</button>
+                </section>
+                <search-tags>epsilon hundredth search custom elements</search-tags>
+            </div>
             <div class="mdc-card epsilon thousandth" id="4.201">
                 <section class="mdc-card__primary">
                   <h1 class="mdc-card__title mdc-card__title--large">v4.201 Epsilon</h1>
